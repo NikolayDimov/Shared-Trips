@@ -1,4 +1,9 @@
 # Shared Trips
  JS Back-End
 
- Web application for shared trip with buddies
+Web application for shared trips with buddies
+Users
+Authentication
+CRUD
+Session 
+
