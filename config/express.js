@@ -5,7 +5,7 @@ const session = require('express-session');
 // const session = require('../middlewares/session');
 const trimBody = require('../middleware/trimBody');
 const userSession = require('../middleware/userSession');
-
+const cors = require('cors');
 
 
 module.exports = (app) => {
@@ -15,6 +15,7 @@ module.exports = (app) => {
 
     app.engine('.hbs', hbs.engine);
     app.set('view engine', '.hbs');
+    app.use(cors());
 
     app.use('/static', express.static('static'));
     // app.use(cookieParser());
@@ -25,7 +26,8 @@ module.exports = (app) => {
         cookie: { secure: 'auto' }
     }));
     app.use(express.urlencoded({ extended: true }));
-    
+
+
     // if you don't want to trim password
     app.use(trimBody('password'));
     app.use(userSession());
